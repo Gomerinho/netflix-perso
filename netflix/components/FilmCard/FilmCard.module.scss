@@ -1,0 +1,71 @@
+.card {
+  &__container {
+    cursor: pointer;
+    width: 13.7rem;
+    height: 7.7rem;
+    transition: 0.3s cubic-bezier(0.5, 0, 0.1, 1) transform;
+    transition-delay: 0.15s;
+    position: relative;
+    z-index: 3;
+    &:hover {
+      transition: all 0.3s linear;
+      transform: scale(1.3);
+    }
+    &:hover .card__footer {
+      visibility: visible;
+      height: 5rem;
+      opacity: 1;
+    }
+
+    @media screen and (max-width: 1400px) {
+      width: 20rem;
+      height: 14rem;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__footer {
+    height: 0rem;
+    background-color: rgb(16, 16, 16);
+    opacity: 0;
+    visibility: hidden;
+    transition: all linear 0.3s;
+    .buttons__container {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 1rem;
+
+      .icon__button {
+        border-radius: 50%;
+        width: 2rem;
+        height: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px rgb(139, 139, 139) solid;
+        background-color: rgb(28, 28, 28);
+        color: white;
+        padding: 0;
+        svg {
+          width: 16px;
+          height: 16px;
+        }
+        &:hover {
+          border-color: white;
+        }
+        &:first-of-type {
+          border: none;
+          color: inherit;
+          background-color: white;
+        }
+        &:last-of-type {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+}

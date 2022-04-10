@@ -1,0 +1,12 @@
+.slider {
+  overflow: inherit;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgba(221, 221, 221, 0.55) !important;
+  &:hover {
+    transition: color linear 0.5s;
+    color: white !important;
+  }
+}

@@ -1,0 +1,19 @@
+.footer {
+  width: 100%;
+  margin: 10rem 15rem;
+  &__media {
+    display: flex;
+    gap: 2rem;
+    &__link {
+      text-decoration: none;
+      color: white;
+      width: 36px;
+      height: 25px;
+      margin-bottom: 0.25rem;
+    }
+  }
+  &__copyrights {
+    color: #808080;
+    font-size: 14px;
+  }
+}

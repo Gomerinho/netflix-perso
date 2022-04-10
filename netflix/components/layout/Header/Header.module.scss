@@ -1,0 +1,59 @@
+.header {
+  padding: 2rem 4.5rem;
+  background-color: transparent;
+  position: relative;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  &.scrolled {
+    background-color: white;
+    transition: all linear 0.2s;
+  }
+  .navbar {
+    display: flex;
+    gap: 4rem;
+    &__logo {
+      width: 5.8rem;
+      height: 1.875rem;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url('https://www.pngmart.com/files/10/Netflix-Logo-PNG-Image.png');
+    }
+
+    &__list {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      color: white;
+
+      .links {
+        font-size: 14px;
+        color: #e5e5e5;
+        &.active {
+          color: #ffff;
+        }
+      }
+    }
+
+    &__tools {
+      color: white;
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      justify-self: flex-end;
+
+      .avatar {
+        width: 2rem;
+        height: 2rem;
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url('https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABYo-77w9gFw_bfvYXpqLi1OrTW3u_MQ3JRXXeXnOqz74mgOhPdElhW0zuVDBSMSx1-5IY97zLiQPDNx2_2iq2CI.png?r=a30');
+      }
+    }
+  }
+}
