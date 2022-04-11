@@ -8,6 +8,19 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  & input {
+    color: black;
+    display: inline-block;
+    background: 0 0;
+    border: none;
+    box-sizing: border-box;
+    padding: 7px 14px 7px 7px;
+    font-size: 14px;
+    width: 212px;
+    outline: 0;
+    border: 1px black solid;
+    background-color: white;
+  }
   &.scrolled {
     background-color: white;
     transition: all linear 0.2s;

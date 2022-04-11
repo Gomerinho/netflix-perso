@@ -8,6 +8,7 @@ import { getAllGenres, getMovieById } from '../service/request';
 import ModalFilm from '../components/FilmCard/ModalFilm/ModalFilm';
 import { ModalFilmContext } from '../context/modalFilmContext';
 import { useRouter } from 'next/router';
+import Hero from '../components/Hero/Hero';
 
 export default function Home() {
   const router = useRouter();
@@ -18,17 +19,13 @@ export default function Home() {
     getAllGenres().then(data => setGenres(data));
   }, []);
 
-  useEffect(() => {
-    console.log(q);
-    console.log(router.query);
-  }, [q]);
-
   return (
     <div
       style={{
         overflow: modalFilmContext.open ? 'hidden' : 'auto',
       }}
     >
+      <Hero />
       {genres.map(genre => (
         <Slider key={genre.id} genre={genre} />
       ))}
