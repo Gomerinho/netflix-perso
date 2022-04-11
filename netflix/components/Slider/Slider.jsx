@@ -1,14 +1,28 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { React } from 'react';
+import { React, useEffect, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper';
 import FilmCard from '../FilmCard/FilmCard';
+import {
+  getMoviesByGenre,
+  getNetflixMovies,
+  getPopularMoviesTheMovieDB,
+} from '../../service/request';
 
-const Slider = ({ title }) => {
+const Slider = ({ title, genre }) => {
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    if (genre) {
+      getMoviesByGenre(genre.id).then(data => setMovies(data.reverse()));
+    } else {
+      getNetflixMovies().then(data => setMovies(data));
+    }
+  }, []);
+
   return (
     <>
-      <h3 className='slider__title'>{title}</h3>
+      <h3 className='slider__title'>{genre ? genre.name : title}</h3>
       <Swiper
         navigation={true}
         modules={[Navigation]}
@@ -17,52 +31,15 @@ const Slider = ({ title }) => {
         loop={true}
         className={'slider'}
         style={{
-          overflow: 'inherit',
+          overflow: 'initial',
           padding: '0 3rem',
         }}
       >
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
-        <SwiperSlide>
-          <FilmCard img='https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8' />
-        </SwiperSlide>
+        {movies.map(movie => (
+          <SwiperSlide key={movie.id}>
+            <FilmCard movie={movie} key={movie.id} />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );

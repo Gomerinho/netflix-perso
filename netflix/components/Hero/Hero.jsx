@@ -29,7 +29,7 @@ const Hero = () => {
         <div className={styles.hero__vignette}></div>
       </div>
       <div className={styles.film__slider}>
-        <Slider title={'Mon top 10'} />
+        <Slider title={'Vous pourriez aimer'} />
       </div>
     </section>
   );
