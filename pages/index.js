@@ -11,8 +11,6 @@ import { useRouter } from 'next/router';
 import Hero from '../components/Hero/Hero';
 
 export default function Home() {
-  const router = useRouter();
-  const { q } = router.query;
   const [genres, setGenres] = useState([]);
   const modalFilmContext = useContext(ModalFilmContext);
   useEffect(() => {

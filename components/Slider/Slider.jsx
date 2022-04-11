@@ -9,6 +9,7 @@ import {
   getNetflixMovies,
   getPopularMoviesTheMovieDB,
 } from '../../service/request';
+import Link from 'next/link';
 
 const Slider = ({ title, genre }) => {
   const [movies, setMovies] = useState([]);
@@ -22,7 +23,14 @@ const Slider = ({ title, genre }) => {
 
   return (
     <>
-      <h3 className='slider__title'>{genre ? genre.name : title}</h3>
+      {genre ? (
+        <Link href={genre && `/genres/${genre.id}`}>
+          <h3 className='slider__title'>{genre.name}</h3>
+        </Link>
+      ) : (
+        <h3 className='slider__title slider__title-noLink'>{title}</h3>
+      )}
+
       <Swiper
         navigation={true}
         modules={[Navigation]}

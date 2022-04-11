@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { React, useState } from 'react';
 import styles from './Header.module.scss';
@@ -16,9 +17,17 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <nav className={styles.navbar}>
-        <div className={styles.navbar__logo}></div>
+        <Link href={'/'} passHref>
+          <div
+            className={styles.navbar__logo}
+            style={{ cursor: 'pointer' }}
+          ></div>
+        </Link>
+
         <ul className={styles.navbar__list}>
-          <li className={styles.links}>Films</li>
+          <Link href={'/'} passHref>
+            <li className={styles.links}>Films</li>
+          </Link>
           <li className={styles.links}>Ma liste</li>
         </ul>
       </nav>
