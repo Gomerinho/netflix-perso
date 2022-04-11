@@ -43,6 +43,7 @@ const FilmCard = ({ movie }) => {
             src={`https://image.tmdb.org/t/p/original/${backdropImage}?image_language=en&language=en-US`}
             alt={realMovie.title}
             className={styles.card__image}
+            loading='lazy'
           />
           <div className={styles.card__footer}>
             <div className={styles.buttons__container}>
