@@ -8,6 +8,12 @@ export default function Home() {
     <div>
       <MainLayout>
         <Slider />
+        <Slider />
+        <Slider />
+        <Slider />
+        <Slider />
+        <Slider />
+        <Slider />
       </MainLayout>
     </div>
   );

@@ -1,5 +1,19 @@
 .slider {
   overflow: inherit;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+  &:hover {
+    z-index: 999;
+  }
+  &__title {
+    padding-top: 2rem;
+    padding-left: 3rem;
+    padding-bottom: 1rem;
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 500;
+  }
 }
 
 .swiper-button-next,

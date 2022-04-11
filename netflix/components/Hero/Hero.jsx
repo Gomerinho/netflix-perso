@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import Button from '../Button/Button';
 import FilmCard from '../FilmCard/FilmCard';
@@ -26,17 +27,9 @@ const Hero = () => {
           </div>
         </div>
         <div className={styles.hero__vignette}></div>
-        <div className={styles.film__slider}>
-          <h4 className='title__slider'>
-            Top 10 des films en France aujourd&apos;hui
-          </h4>
-          <FilmCard
-            img={
-              'https://occ-0-6302-55.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABcD2XFK0En3QIQ5vKWqLyPlMUedUjCRcJjXVFNgr-acSedJxAjjmiYaWetaXD2AOzRFXXDYTvuRaZ9rdN0r-AMqYUQJGXy64pnObNoNNvc0_I6lMTX0c0tKVCXfRzz6BGBC88-3mXP2zkxQnd8FCZIR7YgTE-LzqoHk02280mZctDlTwESgC58M.jpg?r=0e8'
-            }
-            alt='Adam a travers le temps'
-          />
-        </div>
+      </div>
+      <div className={styles.film__slider}>
+        <Slider title={'Mon top 10'} />
       </div>
     </section>
   );
