@@ -22,7 +22,8 @@ export default function Home() {
   return (
     <div
       style={{
-        overflow: modalFilmContext.open ? 'hidden' : 'auto',
+        overflowY: modalFilmContext.open ? 'hidden' : 'auto',
+        overflowX: 'hidden',
       }}
     >
       <Hero />

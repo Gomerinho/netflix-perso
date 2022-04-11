@@ -3,6 +3,7 @@
   margin-bottom: 3rem;
   position: relative;
   z-index: 1;
+  overflow-x: hidden;
   &:hover {
     z-index: 80;
   }
