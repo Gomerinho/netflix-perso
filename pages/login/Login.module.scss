@@ -1,0 +1,84 @@
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.514);
+  z-index: 101;
+  .logo {
+    width: 10rem;
+    fill: rgb(222, 17, 17);
+    position: absolute;
+    top: 6%;
+    left: 3%;
+    z-index: 102;
+  }
+}
+
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('https://assets.nflxext.com/ffe/siteui/vlv3/e316821f-7177-48f4-b748-e44a8b0840df/670ba30c-6fb9-41f7-810f-de8b0b5a5925/FR-fr-20220406-popsignuptwoweeks-perspective_alpha_website_large.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: grayscale(50%);
+  z-index: 100;
+}
+
+.form {
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  width: 30rem;
+  transform: translate(-50%, -50%);
+  background-color: hsla(0, 0%, 0%, 0.75);
+  padding: 4rem;
+  color: rgba(243, 243, 243, 0.907);
+  &__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    width: 100%;
+    position: relative;
+    label {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    input {
+      border-radius: 4px;
+      border: 0;
+      color: #fff;
+      height: 3rem;
+      padding: 0.5rem 0.75rem;
+      background-color: rgb(46, 46, 46);
+      font-size: 1rem;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+  &__button {
+    border: none;
+    background: #e50914;
+    border-radius: 4px;
+    font-weight: 500;
+    margin: 24px 0 12px;
+    width: 100%;
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: 12px 2em;
+    line-height: 1em;
+    color: white;
+    cursor: pointer;
+  }
+}

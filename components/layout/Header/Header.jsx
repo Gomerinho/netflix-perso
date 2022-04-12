@@ -43,7 +43,9 @@ const Header = () => {
           </div>
         </li>
         <li className={styles.tool}>
-          <div className={styles.avatar}></div>
+          <Link href={'/logout'} passHref>
+            <div className={styles.avatar}></div>
+          </Link>
         </li>
       </ul>
     </header>
