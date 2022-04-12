@@ -63,3 +63,12 @@ export async function getMoviesByQuery(query) {
     .then(data => data.results)
     .catch(err => console.log(err));
 }
+
+export async function getVideosMoviesById(id) {
+  return await fetch(
+    `${API_URL}/movie/${id}${API_KEY}&language=fr&append_to_response=videos`
+  )
+    .then(res => res.json())
+    .then(data => data.videos.results)
+    .catch(err => console.log(err));
+}

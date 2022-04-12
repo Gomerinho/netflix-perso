@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 import { React, useEffect, useState, useContext } from 'react';
 import { ModalFilmContext } from '../../context/modalFilmContext';
 import {
@@ -30,15 +31,6 @@ const FilmCard = ({ movie }) => {
     <>
       <div className={styles.card}>
         <div className={styles.card__container}>
-          {/* <div
-          className={styles.card__image}
-          style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.poster_path})`,
-            backgroundSize: 'fill',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        ></div> */}
           <img
             src={`https://image.tmdb.org/t/p/original/${backdropImage}?image_language=en&language=en-US`}
             alt={realMovie.title}
@@ -47,14 +39,16 @@ const FilmCard = ({ movie }) => {
           />
           <div className={styles.card__footer}>
             <div className={styles.buttons__container}>
-              <button className={`${styles.icon__button} button`}>
-                <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
-                  <path
-                    d='M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z'
-                    fill='currentColor'
-                  ></path>
-                </svg>
-              </button>
+              <Link href={`/watch/${realMovie.id}`} passHref>
+                <button className={`${styles.icon__button} button`}>
+                  <svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
+                    <path
+                      d='M4 2.69127C4 1.93067 4.81547 1.44851 5.48192 1.81506L22.4069 11.1238C23.0977 11.5037 23.0977 12.4963 22.4069 12.8762L5.48192 22.1849C4.81546 22.5515 4 22.0693 4 21.3087V2.69127Z'
+                      fill='currentColor'
+                    ></path>
+                  </svg>
+                </button>
+              </Link>
               <button className={styles.icon__button}>
                 <svg
                   width='24'
