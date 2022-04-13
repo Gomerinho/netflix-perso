@@ -60,7 +60,7 @@ const Login = () => {
         <div className={styles.form__group}>
           <label htmlFor='password'>Mot de passe</label>
           <input
-            type='text'
+            type='password'
             name='password'
             id='password'
             value={password}
